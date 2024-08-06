@@ -25,14 +25,17 @@ exports.login = async (req, res, next) => {
       .json({ status: "Error", message: "Email or password not match" });
   }
 
-  //4)- Check if the user is deactivated or not
-
   //5)- Compare the passwords
 
   if (!(await loginUser.matchPassword(req.body.password, loginUser.password))) {
     return res
       .status(401)
       .json({ status: "Error", message: "Email or password not match" });
+  }
+  //4)- Check if the user is verified or not
+
+  if (loginUser.verified === "Not-Verified") {
+    return res.status(403).json({ message: "User is not verified" });
   }
 
   //passwords are matched

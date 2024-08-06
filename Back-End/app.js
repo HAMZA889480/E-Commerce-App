@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 //adding user routers as a middle-ware
-app.use("/portfolio/v1/users", userRouter);
+app.use("/e-commerce/users", userRouter);
 
 //adding the task router as a middle-ware
 app.use("/portfolio/v1/tasks", taskRouter);

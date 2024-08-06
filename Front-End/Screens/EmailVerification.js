@@ -35,7 +35,7 @@ export default function EmailVerification({ route }) {
     //here is the code to verify
 
     //after verification navigate to next screen
-    navigation.navigate("UserInfoScreen");
+    navigation.navigate("Login");
   };
 
   return (

@@ -18,6 +18,11 @@ const userSchema = new mongoose.Schema({
     required: [true, "password is required"],
     type: String,
   },
+  verified: {
+    type: String,
+    enum: ["Verified", "Not-Verified"],
+    default: "Not-Verified",
+  },
   tasks: [Tasks],
 
   passwordChangeAt: Date,
