@@ -1,14 +1,25 @@
 import { Pressable, StyleSheet, Text, View, Image } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Searchbar, IconButton } from "react-native-paper";
 import { ScrollView } from "react-native-gesture-handler";
-import CategoryList from "../Const/Categories";
+import CategoriesData from "../Const/CategoriesData";
+import DealsData from "../Const/DealsData";
+import ProductsData from "../Const/ProductsData";
+import ProductsList from "../Components/ProductList";
+import DropDownList from "../Components/DropDownList";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [DropDownCategory, setDropDownCategory] = useState("Select Category");
+  const [mainCategories, setMainCategories] = useState("All");
+
+  useEffect(() => {
+    console.log(mainCategories);
+  }, [mainCategories]);
+
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <ScrollView>
         <View
           style={{
             width: "100%",
@@ -33,6 +44,8 @@ const Home = () => {
             onPress={() => console.log("Pressed")}
           />
         </View>
+
+        {/* Addess View */}
         <View
           style={{
             flexDirection: "row",
@@ -69,9 +82,10 @@ const Home = () => {
           contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 5 }}
           showsHorizontalScrollIndicator={false}
         >
-          {CategoryList.map((item, index) => {
+          {CategoriesData.map((item, index) => {
             return (
               <Pressable
+                onPress={() => setMainCategories(item.name)}
                 key={index}
                 style={{
                   backgroundColor: "#fff",
@@ -103,6 +117,111 @@ const Home = () => {
             );
           })}
         </ScrollView>
+        {mainCategories === "All" ? (
+          <View>
+            {/* Image Slider */}
+
+            {/* Hot Deals for the week */}
+
+            <Text style={{ padding: 10, fontSize: 18, fontWeight: "bold" }}>
+              Trending Deals of the week
+            </Text>
+
+            {/* Image source={require("../assets/Category/cloths.png")} */}
+
+            <View>
+              {DealsData.map((item, index) => {
+                return (
+                  <Pressable
+                    key={index}
+                    style={{
+                      flexDirection: "row",
+                      backgroundColor: "#fff",
+                      margin: 10,
+                      padding: 10,
+                      borderRadius: 10,
+                      elevation: 5,
+                    }}
+                  >
+                    <Image
+                      source={item.image}
+                      resizeMode="contain"
+                      style={{
+                        width: 100,
+                        height: 100,
+                        justifyContent: "center",
+                      }}
+                    />
+
+                    <View style={{ marginLeft: 10 }}>
+                      <Text
+                        numberOfLines={1}
+                        style={{ fontSize: 16, fontWeight: "bold" }}
+                      >
+                        {item.title}
+                      </Text>
+                      <Text
+                        numberOfLines={2}
+                        style={{ fontSize: 14, color: "#444" }}
+                      >
+                        {item.description}
+                      </Text>
+                      <Text style={{ fontSize: 14, color: "#444" }}>
+                        {item.features.map((feature, index) => (
+                          <Text numberOfLines={1} key={index}>
+                            {feature}{" "}
+                          </Text>
+                        ))}
+                      </Text>
+                      <Text style={{ fontSize: 14, color: "#444" }}>
+                        {item.price}
+                      </Text>
+                      <Text style={{ fontSize: 14, color: "#444" }}>
+                        {item.discount}
+                      </Text>
+                    </View>
+                  </Pressable>
+                );
+              })}
+            </View>
+
+            <DropDownList categoryHandler={setDropDownCategory} />
+            {/* Products */}
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                flexWrap: "wrap",
+                width: "100%",
+              }}
+            >
+              {DropDownCategory === "Select Category"
+                ? ProductsData.map((item, index) => {
+                    return <ProductsList key={index} product={item} />;
+                  })
+                : ProductsData.filter(
+                    (item) => item.name === DropDownCategory
+                  ).map((item, index) => {
+                    return <ProductsList key={index} product={item} />;
+                  })}
+            </View>
+          </View>
+        ) : (
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "center",
+              flexWrap: "wrap",
+              width: "100%",
+            }}
+          >
+            {ProductsData.filter(
+              (item) => item.category === mainCategories
+            ).map((item, index) => {
+              return <ProductsList key={index} product={item} />;
+            })}
+          </View>
+        )}
       </ScrollView>
     </View>
   );
