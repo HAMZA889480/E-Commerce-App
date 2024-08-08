@@ -7,9 +7,18 @@ const DealsList = [
 
     description: "Dawlence Chrome Series Fridge.",
     features: ["Invertor", "Glass Door", "3-year warranty"],
-    price: "Rs. 50,000",
-    discount: "10% OFF",
-    image: require("../assets/Deals/fridge1.png"),
+    price: "50,000",
+    discount: "10%",
+    images: [require("../assets/Deals/fridge1.png")],
+    extra: [
+      {
+        Color: ["blue", "green", "black"],
+      },
+      {
+        Size: ["small", "medium", "large"],
+      },
+    ],
+    sold: 5,
   },
   {
     id: 2,
@@ -18,9 +27,18 @@ const DealsList = [
     title: "Dawlence Avante+ Fridge",
     description: "Dawlence Avante+ Series Fridge.",
     features: ["Invertor", "Glass Door", "3-year warranty,"],
-    price: "Rs. 150,000",
-    discount: "15% OFF",
-    image: require("../assets/Deals/fridge2.png"),
+    price: "150,000",
+    discount: "15%",
+    images: [require("../assets/Deals/fridge2.png")],
+    extra: [
+      {
+        Colors: ["blue", "green", "black"],
+      },
+      {
+        Size: ["small", "medium", "large"],
+      },
+    ],
+    sold: 10,
   },
   {
     id: 3,
@@ -29,9 +47,18 @@ const DealsList = [
     title: "Samsung S23",
     description: "Samsung S23 (12GB, 256GB)",
     features: ["12GB", "Blue Color", "3-year warranty,"],
-    price: "Rs. 170,000",
-    discount: "5% OFF",
-    image: require("../assets/Deals/phone.png"),
+    price: "170,000",
+    discount: "5%",
+    images: [require("../assets/Deals/phone.png")],
+    extra: [
+      {
+        Color: ["blue", "green", "black"],
+      },
+      {
+        Ram: ["8GB", "12GB"],
+      },
+    ],
+    sold: 15,
   },
   {
     id: 4,
@@ -40,9 +67,15 @@ const DealsList = [
     title: "Redmi 13C",
     description: "Redmi 13C (4GB, 64GB)",
     features: ["4GB", "White Color", "50MP Camera"],
-    price: "Rs. 80,000",
-    discount: "18% OFF",
-    image: require("../assets/Deals/phone2.png"),
+    price: "80,000",
+    discount: "18%",
+    images: [require("../assets/Deals/phone2.png")],
+    extra: [
+      {
+        Ram: ["4GB", "6GB"],
+      },
+    ],
+    sold: 20,
   },
   {
     id: 5,
@@ -51,9 +84,11 @@ const DealsList = [
     title: "Velvet Sofa",
     description: "Velvet Sofa (6 Seater)",
     features: ["Velvet Material", "Sky Blue", "6 Seater"],
-    price: "Rs. 85,000",
-    discount: "18% OFF",
-    image: require("../assets/Deals/sofa.png"),
+    price: "85,000",
+    discount: "18%",
+    images: [require("../assets/Deals/sofa.png")],
+    extra: [],
+    sold: 25,
   },
   {
     id: 6,
@@ -62,9 +97,18 @@ const DealsList = [
     title: "Samsung Washing Machine",
     description: "Samsung Washing Machine (10KG)",
     features: ["10KG", "White Color", "3-year warranty"],
-    price: "Rs. 65,000",
-    discount: "10% OFF",
-    image: require("../assets/Deals/washing.png"),
+    price: "65,000",
+    discount: "10%",
+    images: [require("../assets/Deals/washing.png")],
+    extra: [
+      {
+        Color: ["red", "white", "black"],
+      },
+      {
+        Capacity: ["10KG", "14KG"],
+      },
+    ],
+    sold: 0,
   },
 ];
 

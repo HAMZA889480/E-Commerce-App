@@ -6,9 +6,17 @@ const Products = [
     title: "Dawlence Chrome Fridge",
     description: "Dawlence Chrome Series Fridge.",
     features: ["Invertor", "Glass Door", "3-year warranty"],
-    price: "Rs. 50,000",
-    discount: "15% OFF",
-    image: require("../assets/Deals/fridge1.png"),
+    price: "50,000",
+    discount: "10%",
+    images: [require("../assets/Deals/fridge1.png")],
+    extra: [
+      {
+        Color: ["blue", "green", "black"],
+      },
+      {
+        Size: ["small", "medium", "large"],
+      },
+    ],
     sold: 5,
   },
   {
@@ -18,9 +26,17 @@ const Products = [
     title: "Dawlence Avante+ Fridge",
     description: "Dawlence Avante+ Series Fridge.",
     features: ["Invertor", "Glass Door", "3-year warranty,"],
-    price: "Rs. 150,000",
-    discount: "",
-    image: require("../assets/Deals/fridge2.png"),
+    price: "150,000",
+    discount: "15%",
+    images: [require("../assets/Deals/fridge2.png")],
+    extra: [
+      {
+        Colors: ["blue", "green", "black"],
+      },
+      {
+        Size: ["small", "medium", "large"],
+      },
+    ],
     sold: 10,
   },
   {
@@ -30,10 +46,18 @@ const Products = [
     title: "Samsung S23",
     description: "Samsung S23 (12GB, 256GB)",
     features: ["12GB", "Blue Color", "3-year warranty,"],
-    price: "Rs. 170,000",
+    price: "170,000",
     discount: "",
-    image: require("../assets/Deals/phone.png"),
+    images: [require("../assets/Deals/phone.png")],
     sold: 15,
+    extra: [
+      {
+        Color: ["blue", "green", "black"],
+      },
+      {
+        Ram: ["8GB", "12GB"],
+      },
+    ],
   },
   {
     id: 4,
@@ -42,10 +66,15 @@ const Products = [
     title: "Redmi 13C",
     description: "Redmi 13C (4GB, 64GB)",
     features: ["4GB", "White Color", "50MP Camera"],
-    price: "Rs. 80,000",
+    price: "80,000",
     discount: "15% OFF",
-    image: require("../assets/Deals/phone2.png"),
+    images: [require("../assets/Deals/phone2.png")],
     sold: 20,
+    extra: [
+      {
+        Ram: ["4GB", "6GB"],
+      },
+    ],
   },
   {
     id: 5,
@@ -54,10 +83,11 @@ const Products = [
     title: "Velvet Sofa",
     description: "Velvet Sofa (6 Seater)",
     features: ["Velvet Material", "Sky Blue", "6 Seater"],
-    price: "Rs. 85,000",
-    discount: "",
-    image: require("../assets/Deals/sofa.png"),
+    price: "85,000",
+    discount: "10%",
+    images: [require("../assets/Deals/sofa.png")],
     sold: 25,
+    extra: [],
   },
   {
     id: 6,
@@ -66,10 +96,18 @@ const Products = [
     title: "Samsung Washing Machine",
     description: "Samsung Washing Machine (10KG)",
     features: ["10KG", "White Color", "3-year warranty"],
-    price: "Rs. 65,000",
+    price: "65,000",
     discount: "",
-    image: require("../assets/Deals/washing.png"),
+    images: [require("../assets/Deals/washing.png")],
     sold: 0,
+    extra: [
+      {
+        Color: ["red", "white", "black"],
+      },
+      {
+        Capacity: ["10KG", "14KG"],
+      },
+    ],
   },
   {
     id: 7,
@@ -79,10 +117,15 @@ const Products = [
     description:
       "AKG Earphones. Original AKG Earphones. Handsfree with Top Base",
     features: ["3.5mm Jack", "Black Color", "2-months warranty,"],
-    price: "Rs. 500",
+    price: "500",
     discount: "",
-    image: require("../assets/Deals/handfree.png"),
+    images: [require("../assets/Deals/handfree.png")],
     sold: 25,
+    extra: [
+      {
+        Color: ["white", "black"],
+      },
+    ],
   },
   {
     id: 8,
@@ -92,10 +135,15 @@ const Products = [
     description:
       "Sony Wireless HeadPhones. Original Sony HeadPhones. Long lasting battery",
     features: ["Wireless", "Multiple Colors", "2-year warranty,"],
-    price: "Rs. 30,000",
+    price: "30,000",
     discount: "",
-    image: require("../assets/Deals/headphones.png"),
+    images: [require("../assets/Deals/headphones.png")],
     sold: 60,
+    extra: [
+      {
+        Color: ["blue", "white", "black"],
+      },
+    ],
   },
 ];
 

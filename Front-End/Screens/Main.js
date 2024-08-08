@@ -7,15 +7,14 @@ import DealsData from "../Const/DealsData";
 import ProductsData from "../Const/ProductsData";
 import ProductsList from "../Components/ProductList";
 import DropDownList from "../Components/DropDownList";
+import { useNavigation } from "@react-navigation/native";
 
 const Home = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [DropDownCategory, setDropDownCategory] = useState("Select Category");
   const [mainCategories, setMainCategories] = useState("All");
 
-  useEffect(() => {
-    console.log(mainCategories);
-  }, [mainCategories]);
+  const navigation = useNavigation();
 
   return (
     <View style={{ flex: 1, backgroundColor: "#fff" }}>
@@ -133,6 +132,9 @@ const Home = () => {
               {DealsData.map((item, index) => {
                 return (
                   <Pressable
+                    onPress={() => {
+                      navigation.navigate("ProductInfo", { product: item });
+                    }}
                     key={index}
                     style={{
                       flexDirection: "row",
@@ -144,7 +146,7 @@ const Home = () => {
                     }}
                   >
                     <Image
-                      source={item.image}
+                      source={item.images[0]}
                       resizeMode="contain"
                       style={{
                         width: 100,
@@ -174,6 +176,7 @@ const Home = () => {
                         ))}
                       </Text>
                       <Text style={{ fontSize: 14, color: "#444" }}>
+                        Rs. {"  "}
                         {item.price}
                       </Text>
                       <Text style={{ fontSize: 14, color: "#444" }}>

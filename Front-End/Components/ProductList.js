@@ -1,15 +1,17 @@
 import { StyleSheet, Image, Text, View, Pressable } from "react-native";
-import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import SaleTag from "../assets/Tags/pngegg (2).png";
 import { Icon } from "react-native-paper";
-import { List } from "react-native-paper";
-
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/cartSlice";
 const Product = ({ product }) => {
-  const [expanded, setExpanded] = useState(true);
-
-  const handlePress = () => setExpanded(!expanded);
+  const navigation = useNavigation();
+  const dispatch = useDispatch();
   return (
     <Pressable
+      onPress={() => {
+        navigation.navigate("ProductInfo", { product: product });
+      }}
       style={{
         marginVertical: 20,
         marginHorizontal: 20,
@@ -36,7 +38,7 @@ const Product = ({ product }) => {
       <Image
         resizeMode="contain"
         style={{ width: "80%", height: 150, marginTop: 5 }}
-        source={product.image}
+        source={product.images[0]}
       />
       <Text
         numberOfLines={1}
@@ -85,6 +87,9 @@ const Product = ({ product }) => {
         )}
       </View>
       <Pressable
+        onPress={() => {
+          dispatch(addToCart(product));
+        }}
         style={{
           //backgroundColor: "#ffc72c",
 
